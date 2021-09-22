@@ -57,7 +57,7 @@ function createD()
         textoFin = 'ERES UNO DE LOS \n      AUTÉNTICOS';
         this.add.text(25, 310, textoFin, { font: '40px Intro', fill: '#000000' });
         this.tigresrojos = this.add.image(fondopix, 475, 'tigre');
-        this.tigresrojos.setScale(.05);
+        this.tigresrojos.setScale(.28);
     }
     else {        
         //picapica.setVisible(false);

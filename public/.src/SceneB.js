@@ -26,8 +26,7 @@ function createB()
     this.productos = this.add.image(fondopix, fondopiy, 'productob');
     //this.productos.setScale(.8);
     //this.add.image(fondopix, fondopiy + 100, 'texto');
-    //this.add.text(170, fondopiy, 'Selecciona todos los productos Nestlé que encuentres \n               en la góndola para ahorrar en grande', { font: '25px Intro', fill: '#ffffff' });
-
+    
     this.logo = this.add.image(200, 140, 'logo');
     this.logo.setScale(.5);
     this.button =this.add.image(fondopix, fondopiy + 270, 'boton').setInteractive();

@@ -17,7 +17,7 @@ function preoloadA()
 {    
     //console.log('Cargando sceneA')
     this.load.image('sky', './assets/img/Fondo.jpg');
-    this.load.image('producto', './assets/img/bodegon.png');
+    this.load.image('tigres', './assets/img/logo-02.png');
     this.load.image('logo', './assets/img/Logo_Malher.png');
     this.load.image('fullscreen', './assets/fullscreen.png');
 
@@ -26,37 +26,21 @@ function preoloadA()
 
 function createA()
 {
-    //this.scale.mode = Phaser.Scale.RESIZE;
-    //console.log('setInteractive1');
     this.buttonInicio = this.add.image(fondopix, fondopiy, 'sky').setInteractive();
     this.buttonFs = this.add.image(gw - 40, 50, 'fullscreen').setInteractive();
-    this.productos = this.add.image(fondopix, fondopiy+100, 'producto');
-    this.productos.setScale(.8);
+    this.tigres = this.add.image(fondopix, 150, 'tigres');
+    this.tigres.setScale(.25);
 
     //line1 = new Phaser.Line(0, 140, gw, 140);
-    this.add.line(0, 140, 0, 140, gw * 2, 140, 0xffffff);
+    this.add.line(0, 120, 0, 120, gw * 2, 120, 0xffffff);
 
-    this.add.text(60, 200, 'Bienvenido', { font: '50px Intro', fill: '#ffffff' });
-    this.add.text(35, gh - 100, 'Toca la pantalla para iniciar', { font: '25px Intro', fill: '#ffffff' });
+    this.add.text(100, 270, 'Bienvenido', { font: '40px Intro', fill: '#ffffff' });
+    this.add.text(150, 320, 'al juego de ', { font: '30px Intro', fill: '#ffffff' });
+    this.add.text(35, gh - 200, 'Toca la pantalla para iniciar', { font: '25px Intro', fill: '#ffffff' });
     
-    //var particles = this.add.particles('red');
-
-    // var emitter = particles.createEmitter({
-    //     //speed: 100,
-    //     scale: { start: .75, end: 0 },
-    //     blendMode: 'ADD'
-    // });
-
-
-    //var logo = this.physics.add.image(50, 100, 'logo');
-    var logo = this.add.image(fondopix, 100, 'logo');
+    var logo = this.add.image(fondopix, 470, 'logo');
     logo.setScale(.35);
-    //logo.setVelocity(0, 0);
-    //logo.setBounce(0, 0);
-    //logo.setCollideWorldBounds(true);
-
-    //emitter.startFollow(logo);
-
+    
     //if (intentos == 0) {
     this.buttonInicio.on('pointerdown', function(event){
         console.log('iniciAR presionado... ---');

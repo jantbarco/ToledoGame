@@ -62,7 +62,7 @@ function create(){
     textoTiempo = this.add.text(80, 180, 'TIEMPO RESTANTE', { font: '25px Intro', fill: '#ffffff' });
     infoTiempo = this.add.text(160, 210, '', { font: '30px Intro', fill: '#ffffff' });
     //textoTiempo = this.add.text(80, 180, '', { font: '25px Intro', fill: '#ffffff' });
-    infoMarcador = this.add.text(gw * .60, 650, '', { font: '28px Intro', fill: '#ffffff' });
+    infoMarcador = this.add.text(gw * .68, 650, '', { font: '28px Intro', fill: '#ffffff' });
     timer = this.time.addEvent({ delay: gt * 1000, callback: gameOver, callbackScope: this });
 }
 
@@ -78,12 +78,15 @@ function update() {
         //infoTiempo.setText('00:' + segundosfaltan(falta0));        
     }
     infoTiempo.setText('00:' + segundosfaltan(falta));
-    infoMarcador.setText('PUNTOS \n          ' + productos);
+    infoMarcador.setText('PUNTOS \n       ' + productos);
+
+    textoTiempo = this.add.text(20, 700, 'Tap a la pantalla para \n eliminar a la competencia \n   de la góndola.', { font: '20px Intro', fill: '#ffffff' });
 }
 
 function segundosfaltan(segundos) {
+    console.log(segundos);
     //if (productos != total && Math.floor(gt - timer.getElapsed() / 1000) > 0) {
-    if (Math.floor(total - timer / 1000) > 10) 
+    if (segundos > 10) 
         return segundos;
     else
         return '0' + segundos;

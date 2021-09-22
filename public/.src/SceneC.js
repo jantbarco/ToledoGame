@@ -22,9 +22,11 @@ function preloadC()
 
 function createC()
 {
+    
     //console.log('Creando sceneC');
     this.add.image(fondopix, fondopiy, 'sky');
-    this.productos = this.add.image(fondopix, fondopiy+100, 'productob');
+    this.add.text(100, 70, '¿Estás listo para \n      vencer a la \n  competencia?', { font: '25px Intro', fill: '#ffffff' });
+    this.productos = this.add.image(fondopix, 400, 'productob');
     this.productos.setScale(.8);
     //this.add.image(fondopix, fondopiy + 120, 'barra');
 
@@ -41,7 +43,7 @@ function createC()
 
     // var logo = this.physics.add.image(400, 100, 'logo');
 
-    infoTiempoC = this.add.text(fondopix - 60, fondopiy - 300, '', { font: '200px Intro', fill: '#ffffff' });    
+    infoTiempoC = this.add.text(fondopix - 60, fondopiy + 170, '', { font: '200px Intro', fill: '#ffffff' });    
     timerC = this.time.addEvent({ delay: 3 * 1000, callback: loadingfinish, callbackScope: this });
 
     audio_cs = this.sound.add("audio_cs");
