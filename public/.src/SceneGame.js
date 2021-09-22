@@ -20,7 +20,7 @@ function preload(){
 
     CargarImagenes(this);
     
-    this.load.audio("audio_fondo", "./assets/fondo.mp3");
+    this.load.audio("audio_fondo", "./assets/sound/game.mp3");
     this.load.audio("audio_moneda", "./assets/coin.wav");
 }
 
@@ -33,7 +33,8 @@ function create(){
     this.logo = this.add.image(logox, logoy, "logom");
     this.logo.setScale(.35);
     mira = this.add.image(fondopix, fondopiy, "mira");
-    mira.setScale(.3);
+    mira.setScale(.25);
+    mira.setDepth(2);
 
     CrearProductos(this);
 
@@ -51,7 +52,7 @@ function create(){
         gameObject.emit('clicked', gameObject);
     }, this);
 
-    // this.add.text(5, gh - 140, 'Regresar', { font: '20px Gotham', fill: '#00a4dc' });
+    // this.add.text(5, gh - 140, 'Regresar', { font: '20px Intro', fill: '#00a4dc' });
     // this.buttonBack =this.add.image(0 + 50, gh - 70, "botonB").setInteractive();
     
     // this.buttonBack.on('pointerdown', function(event){
@@ -59,32 +60,53 @@ function create(){
     //     this.scene.start('sceneA');
     //   }, this);
 
-    textoTiempo = this.add.text(80, 180, 'TIEMPO RESTANTE', { font: '25px Gotham', fill: '#ffffff' });
-    infoTiempo = this.add.text(160, 210, '', { font: '30px Gotham', fill: '#ffffff' });
-    infoMarcador = this.add.text(gw * .65, 650, '', { font: '100px Gotham', fill: '#ffffff' });
+    textoTiempo = this.add.text(80, 180, 'TIEMPO RESTANTE', { font: '25px Intro', fill: '#ffffff' });
+    infoTiempo = this.add.text(160, 210, '', { font: '30px Intro', fill: '#ffffff' });
+    //textoTiempo = this.add.text(80, 180, '', { font: '25px Intro', fill: '#ffffff' });
+    infoMarcador = this.add.text(gw * .60, 650, '', { font: '28px Intro', fill: '#ffffff' });
     timer = this.time.addEvent({ delay: gt * 1000, callback: gameOver, callbackScope: this });
 }
 
 function update() {
     //if (productos != total && Math.floor(gt - timer.getElapsed() / 1000) > 0) {
-    if (Math.floor(gt - timer.getElapsed() / 1000) > 0) {
+    falta = Math.floor(gt - timer.getElapsed() / 1000);
+    //console.log(falta);
+    if (falta > 0) {
         for (i in objetos){
             restarx(objetos[i]);
         }
 
-        infoTiempo.setText('00:0' + Math.floor(gt - timer.getElapsed() / 1000));        
+        //infoTiempo.setText('00:' + segundosfaltan(falta0));        
     }
-    infoTiempo.setText('00:0' + Math.floor(gt - timer.getElapsed() / 1000));
-    infoMarcador.setText(productos);
+    infoTiempo.setText('00:' + segundosfaltan(falta));
+    infoMarcador.setText('PUNTOS \n          ' + productos);
+}
+
+function segundosfaltan(segundos) {
+    //if (productos != total && Math.floor(gt - timer.getElapsed() / 1000) > 0) {
+    if (Math.floor(total - timer / 1000) > 10) 
+        return segundos;
+    else
+        return '0' + segundos;
 }
 
 function crearProducto (x, y, nombre, puntos, t){
     //console.log('Creando producto:' + nombre);
     var prod = t.add.image(x, y, nombre);
     //console.log(prod.width + ', ' + prod.height + ' - ' + prod.x + ',' + prod.y + '+' + prod.height / 2 + '=' + prod.y + prod.height / 2);
-    prod.y -=  prod.height / 2;
-    prod.setScale(.15);
     
+    if (nombre.includes('sobre')) {
+        //console.log('Creando sobre:' + nombre+ ', x:' + prod.x + ', y:' + prod.y);
+        prod.setScale(.015);
+        prod.y -= 150;
+    }
+    else
+    {
+        //console.log('Creando sobre:' + nombre+ ', x:' + prod.x + ', y:' + prod.y);
+        prod.y -=  prod.height / 2;
+        prod.setScale(.15);
+    }
+
     if (puntos > 0) {
         total += puntos;
         //  Make them all input enabled
@@ -99,13 +121,14 @@ function crearProducto (x, y, nombre, puntos, t){
 function CrearProductos(g){
     productos = 0;
     total = 0;
-    for (i in Listado){
-        objetos.push(crearProducto(Listado[i].x, Listado[i].y, Listado[i].nombre, Listado[i].puntos, g))
+    for (i in Listado){        
+        objetos.push(crearProducto(Listado[i].x, Listado[i].y, Listado[i].nombre, Listado[i].puntos, g));
     }
 }
 
 function CargarImagenes(g){
     for (i in Listado){
+        //console.log('Cargando producto:|' + Listado[i].nombre + '|-|' + Listado[i].img + '|');
         g.load.image(Listado[i].nombre, Listado[i].img);
     }
 }
@@ -147,7 +170,6 @@ function restarx(o){
 
     if (o.x < 0) {
         o.x = gw;
-
         //o.input.enabled = true;
         o.setVisible(true);
     }

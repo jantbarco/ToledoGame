@@ -14,10 +14,12 @@ function preloadD()
 {
     this.load.image('sky', './assets/inicio/Fondo-01.png');
     this.load.image('contador', './assets/fin/contador.png');
-    this.load.image('botonFin', './assets/fin/boton.png');
-    this.load.image('picapica', './assets/fin/picapica.png');
-    this.load.image('tigre', './assets/img/tigre.gif');
-    this.load.image('mish', './assets/img/mish.gif');
+    this.load.image('botonFin', './assets/img/restart.png');
+    //this.load.image('picapica', './assets/fin/picapica.png');
+
+    this.load.image('fondopuntaje', './assets/img/fondo_puntaje.jpg');
+    this.load.image('tigre', './assets/img/logo-02.png');
+    this.load.image('siguejugando', './assets/img/sigue_jugando.png');
 
     this.load.audio("audio_fin", "./assets/fin.mp3");
     this.load.audio("audio_gameover", "./assets/gameover.mp3");
@@ -26,40 +28,52 @@ function preloadD()
 function createD()
 {
     this.add.image(fondopix, fondopiy, 'sky');
-    picapica = this.add.image(fondopix, 0, 'picapica');
+    //picapica = this.add.image(fondopix, 0, 'picapica');
+    this.logo = this.add.image(fondopix, 80, 'logo');
+    this.logo.setScale(.25);
     //this.add.image(fondopix, fondopiy + 400, 'boton');
 
     audio_fin = this.sound.add("audio_fin");
     //audio_fin1 = this.sound.add("audio_fin1");
     gameover = this.sound.add("audio_gameover");
 
-    this.add.text(gw / 2 - 200, 100, 'Derribaste', { font: '30px Gotham', fill: '#ffffff' });
-    this.add.text(gw / 2 - 130, 150, productos, { font: '70px Gotham', fill: '#1b1464' });
-    this.add.text(gw / 2 - 200, 250, 'productos de la competencia', { font: '20px Gotham', fill: '#ffffff' });
+    this.add.line(0, 0, 0, 150, gw * 2, 150, 0xffffff);
+    this.add.line(0, 0, 0, 260, gw * 2, 260, 0xffffff);
+
+    this.add.text(gw * .34, 150, 'Lograste', { font: '30px Intro', fill: '#ffffff' });
+    this.add.text(gw * .36, 200, productos + ' pts', { font: '40px Intro', fill: '#ffffff' });
+    //this.add.text(gw / 2 - 200, 250, 'productos de la competencia', { font: '20px Intro', fill: '#ffffff' });
+
+    this.fondop = this.add.image(fondopix, 500, 'fondopuntaje');
+    this.fondop.setScale(.39);
 
     var textoFin = '';
 
     if (productos >= meta   ){  
-        picapica.setVisible(true);      
+        //picapica.setVisible(true);      
         audio_fin.play({
             loop: false
         });
         //this.add.image(fondopix, 200, 'trigre');
-        textoFin = '¡GANASTE! \n    Llegaste al nivel Tigre Rojo';
+        textoFin = 'ERES UNO DE LOS \n      AUTÉNTICOS';
+        this.add.text(25, 310, textoFin, { font: '40px Intro', fill: '#000000' });
+        this.tigresrojos = this.add.image(fondopix, 475, 'tigre');
+        this.tigresrojos.setScale(.05);
     }
-    else {
-        
-        picapica.setVisible(false);
+    else {        
+        //picapica.setVisible(false);
         gameover.play({
             loop: false
         });
         //this.add.image(fondopix, 200, 'mish');
-        textoFin = ' GRACIAS POR PARTICIPAR \n   Estas en nivel Mishito';        
+        textoFin = '   NIVEL \nMISHITO';  
+        this.add.text(110, 325, textoFin, { font: '40px Intro', fill: '#000000' });
+        this.tigresrojos = this.add.image(fondopix, 480, 'siguejugando');
+        this.tigresrojos.setScale(.90);
     }
-
-    this.add.text(200, 375, textoFin, { font: '40px Gotham', fill: '#ffffff' });
-    this.buttonFin = this.add.image(fondopix, fondopiy + 200, 'botonFin').setInteractive();
     
+    this.buttonFin = this.add.image(fondopix, fondopiy + 300, 'botonFin').setInteractive();
+    this.buttonFin.setScale(.25)
     this.buttonFin.on('pointerdown', function(event){
         console.log('Boton intentar de nuevo presionado...');
         //intentos++;
@@ -73,15 +87,15 @@ function createD()
 
 function updateD (){
 
-    if (picapica.y > gh) {
-        picapica.y = 0;
-    }
-    else {
-        picapica.y += 2;
-    }
+    // if (picapica.y > gh) {
+    //     picapica.y = 0;
+    // }
+    // else {
+    //     picapica.y += 2;
+    // }
 
     countercarreta++;
-    picapica.x = picapica.x + 0.5 * flagcarreta;
+    //picapica.x = picapica.x + 0.5 * flagcarreta;
     if ((countercarreta % 50) == 0) {        
         flagcarreta = flagcarreta * -1;
     }

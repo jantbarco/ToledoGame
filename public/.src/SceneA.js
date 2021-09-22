@@ -11,16 +11,18 @@ var SceneA = new Phaser.Class({
     create: createA,
 });
 
+var line1;
+
 function preoloadA()
 {    
     //console.log('Cargando sceneA')
     this.load.image('sky', './assets/img/Fondo.jpg');
-    this.load.image('producto', './assets/img/productos.png');
+    this.load.image('producto', './assets/img/bodegon.jpg');
     this.load.image('logo', './assets/img/Logo_Malher.png');
     this.load.image('red', './assets/blue.png');
     this.load.image('fullscreen', './assets/fullscreen.png');
 
-    this.load.audio("audio_intro", "./assets/intro.mp3");
+    this.load.audio("audio_intro", "./assets/sound/intro.mp3");
 }
 
 function createA()
@@ -29,34 +31,39 @@ function createA()
     //console.log('setInteractive1');
     this.buttonInicio = this.add.image(fondopix, fondopiy, 'sky').setInteractive();
     this.buttonFs = this.add.image(gw - 40, 50, 'fullscreen').setInteractive();
-    this.productos = this.add.image(fondopix, fondopiy, 'producto');
-    this.productos.setScale(.7);
+    this.productos = this.add.image(fondopix, fondopiy+100, 'producto');
+    this.productos.setScale(.38);
 
-    this.add.text(60, 250, 'Bienvenido', { font: '50px Gotham', fill: '#ffffff' });
-    this.add.text(35, gh - 100, 'Toca la pantalla para iniciar', { font: '25px Gotham', fill: '#ffffff' });
+    //line1 = new Phaser.Line(0, 140, gw, 140);
+    this.add.line(0, 140, 0, 140, gw * 2, 140, 0xffffff);
+
+    this.add.text(60, 200, 'Bienvenido', { font: '50px Intro', fill: '#ffffff' });
+    this.add.text(35, gh - 100, 'Toca la pantalla para iniciar', { font: '25px Intro', fill: '#ffffff' });
     
-    var particles = this.add.particles('red');
+    //var particles = this.add.particles('red');
 
-    var emitter = particles.createEmitter({
-        speed: 100,
-        scale: { start: 1, end: 0 },
-        blendMode: 'ADD'
-    });
+    // var emitter = particles.createEmitter({
+    //     //speed: 100,
+    //     scale: { start: .75, end: 0 },
+    //     blendMode: 'ADD'
+    // });
 
-    var logo = this.physics.add.image(50, 100, 'logo');
 
+    //var logo = this.physics.add.image(50, 100, 'logo');
+    var logo = this.add.image(fondopix, 100, 'logo');
     logo.setScale(.35);
-    logo.setVelocity(100, 200);
-    logo.setBounce(1, 1);
-    logo.setCollideWorldBounds(true);
+    //logo.setVelocity(0, 0);
+    //logo.setBounce(0, 0);
+    //logo.setCollideWorldBounds(true);
 
-    emitter.startFollow(logo);
+    //emitter.startFollow(logo);
 
     //if (intentos == 0) {
     this.buttonInicio.on('pointerdown', function(event){
         console.log('iniciAR presionado... ---');
+        audio_intro.stop();
         //game = new Phaser.Game(config);            
-        this.scene.start('sceneB');        
+        this.scene.start('sceneC');
         // game.destroy(true);
         // document.addEventListener('mousedown', function newGame () {
         //     game = new Phaser.Game(config);
