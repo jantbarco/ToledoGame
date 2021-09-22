@@ -15,9 +15,7 @@ function preloadC()
     this.load.image('sky', './assets/inicio/Fondo-01.png');
     // this.load.image('logo', './assets/instrucciones/logo.png');
     // this.load.image('texto', './assets/instrucciones/texto.png');
-    this.load.image('productob', './assets/img/bodegon.jpg');
-    this.load.image('barra', './assets/instrucciones/barra.png');
-    // this.load.image('red', './assets/blue.png');
+    this.load.image('productob', './assets/img/bodegon.png');
     
     this.load.audio("audio_cs", "./assets/sound/countdown1.mp3");
 }
@@ -27,7 +25,7 @@ function createC()
     //console.log('Creando sceneC');
     this.add.image(fondopix, fondopiy, 'sky');
     this.productos = this.add.image(fondopix, fondopiy+100, 'productob');
-    this.productos.setScale(.38);
+    this.productos.setScale(.8);
     //this.add.image(fondopix, fondopiy + 120, 'barra');
 
     // textInicio = this.add.text(gw / 4, 200, '', { font: '100px Intro', fill: '#ffffff' });

@@ -13,7 +13,6 @@ var SceneD = new Phaser.Class({
 function preloadD()
 {
     this.load.image('sky', './assets/inicio/Fondo-01.png');
-    this.load.image('contador', './assets/fin/contador.png');
     this.load.image('botonFin', './assets/img/restart.png');
     //this.load.image('picapica', './assets/fin/picapica.png');
 
@@ -21,8 +20,8 @@ function preloadD()
     this.load.image('tigre', './assets/img/logo-02.png');
     this.load.image('siguejugando', './assets/img/sigue_jugando.png');
 
-    this.load.audio("audio_fin", "./assets/fin.mp3");
-    this.load.audio("audio_gameover", "./assets/gameover.mp3");
+    this.load.audio("audio_fin", "./assets/sound/winner.mp3");
+    this.load.audio("audio_gameover", "./assets/sound/lose.mp3");
 }
 
 function createD()
@@ -45,7 +44,7 @@ function createD()
     //this.add.text(gw / 2 - 200, 250, 'productos de la competencia', { font: '20px Intro', fill: '#ffffff' });
 
     this.fondop = this.add.image(fondopix, 500, 'fondopuntaje');
-    this.fondop.setScale(.39);
+    this.fondop.setScale(.8);
 
     var textoFin = '';
 

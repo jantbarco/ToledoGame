@@ -15,9 +15,8 @@ function preloadB()
     this.load.image('sky', './assets/instrucciones/Fondo-01.png');
     //this.load.image('logo', './assets/instrucciones/logo.png');
     //this.load.image('texto', './assets/instrucciones/texto.png');
-    this.load.image('productob', './assets/img/bodegon.jpg');
+    this.load.image('productob', './assets/img/bodegon.png');
     this.load.image('boton', './assets/img/start1.gif');
-    this.load.image('red', './assets/blue.png');
 }
 
 function createB()
@@ -25,7 +24,7 @@ function createB()
     console.log('Creando sceneB');
     this.add.image(fondopix, fondopiy, 'sky');
     this.productos = this.add.image(fondopix, fondopiy, 'productob');
-    this.productos.setScale(.38);
+    //this.productos.setScale(.8);
     //this.add.image(fondopix, fondopiy + 100, 'texto');
     //this.add.text(170, fondopiy, 'Selecciona todos los productos Nestlé que encuentres \n               en la góndola para ahorrar en grande', { font: '25px Intro', fill: '#ffffff' });
 

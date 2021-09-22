@@ -15,7 +15,6 @@ function preload(){
     this.load.image("fondo_gondola", "./assets/img/Fondo_obstaculos.png");
     this.load.image("mira", "./assets/img/mira.png");
     this.load.image("logom", "./assets/img/Logo_Malher.png");
-    this.load.image("alcancilla", "./assets/COCHINITO.png");
     this.load.image("botonB", "./assets/boton.png");
 
     CargarImagenes(this);
@@ -97,7 +96,7 @@ function crearProducto (x, y, nombre, puntos, t){
     
     if (nombre.includes('sobre')) {
         //console.log('Creando sobre:' + nombre+ ', x:' + prod.x + ', y:' + prod.y);
-        prod.setScale(.015);
+        prod.setScale(.05);
         prod.y -= 150;
     }
     else

@@ -17,9 +17,8 @@ function preoloadA()
 {    
     //console.log('Cargando sceneA')
     this.load.image('sky', './assets/img/Fondo.jpg');
-    this.load.image('producto', './assets/img/bodegon.jpg');
+    this.load.image('producto', './assets/img/bodegon.png');
     this.load.image('logo', './assets/img/Logo_Malher.png');
-    this.load.image('red', './assets/blue.png');
     this.load.image('fullscreen', './assets/fullscreen.png');
 
     this.load.audio("audio_intro", "./assets/sound/intro.mp3");
@@ -32,7 +31,7 @@ function createA()
     this.buttonInicio = this.add.image(fondopix, fondopiy, 'sky').setInteractive();
     this.buttonFs = this.add.image(gw - 40, 50, 'fullscreen').setInteractive();
     this.productos = this.add.image(fondopix, fondopiy+100, 'producto');
-    this.productos.setScale(.38);
+    this.productos.setScale(.8);
 
     //line1 = new Phaser.Line(0, 140, gw, 140);
     this.add.line(0, 140, 0, 140, gw * 2, 140, 0xffffff);
