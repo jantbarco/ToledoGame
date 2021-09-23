@@ -14,9 +14,9 @@ function preload(){
     this.load.image("fondo", "./assets/img/Fondo.jpg");
     this.load.image("fondo_gondola", "./assets/img/Fondo_obstaculos.png");
     this.load.image("mira", "./assets/img/mira.png");
+    this.load.image("marcador", "./assets/img/marcador.png");
     this.load.image("logom", "./assets/img/Logo_Malher.png");
-    this.load.image("botonB", "./assets/boton.png");
-
+    
     CargarImagenes(this);
     
     this.load.audio("audio_fondo", "./assets/sound/game.mp3");
@@ -24,16 +24,19 @@ function preload(){
 }
 
 function create(){
+    this.input.setDefaultCursor('url(./assets/img/mira.png), pointer');
     //console.log("Creando esceneGame...")    
     //escena juego    
-    this.fondo = this.add.image(fondopix, fondopiy, "fondo");
+    //this.fondo = this.add.image(fondopix, fondopiy, "fondo");
+    this.add.rectangle(0, 135, gw * 2, 3, 0xdb766c);
+
     this.fondo_gondola = this.add.image(fondopix, fondopiy + 50, "fondo_gondola");    
-    this.fondo_gondola.setScale(.4);
+    this.fondo_gondola.setScale(.55);
     this.logo = this.add.image(logox, logoy, "logom");
-    this.logo.setScale(.35);
-    mira = this.add.image(fondopix, fondopiy, "mira");
-    mira.setScale(.25);
-    mira.setDepth(2);
+    this.logo.setScale(.25);
+    // mira = this.add.image(fondopix, fondopiy, "mira");
+    // mira.setScale(.25);
+    // mira.setDepth(2);
 
     CrearProductos(this);
 
@@ -59,11 +62,19 @@ function create(){
     //     this.scene.start('sceneA');
     //   }, this);
 
-    textoTiempo = this.add.text(80, 180, 'TIEMPO RESTANTE', { font: '25px Intro', fill: '#ffffff' });
-    infoTiempo = this.add.text(160, 210, '', { font: '30px Intro', fill: '#ffffff' });
+    this.marcador = this.add.image(fondopix  * 2 -60, 720, "marcador");
+    this.marcador.setScale(.9);
+    this.marcador.setDepth(-1);
+
+    textoTiempo = this.add.text(80, 140, 'TIEMPO RESTANTE', { font: '25px Arial', fill: '#ffffff' });
+    infoTiempo = this.add.text(160, 170, '', { font: 'bold 30px Arial', fill: '#ffffff' });
     //textoTiempo = this.add.text(80, 180, '', { font: '25px Intro', fill: '#ffffff' });
-    infoMarcador = this.add.text(gw * .68, 650, '', { font: '28px Intro', fill: '#ffffff' });
+    infoMarcador2 = this.add.text(gw * .74, 690, 'PUNTOS', { font: 'bold 25px Arial', fill: '#aa0201' });
+    infoMarcador = this.add.text(gw * .74, 720, '', { font: 'bold 30px Arial', fill: '#aa0201' });
     timer = this.time.addEvent({ delay: gt * 1000, callback: gameOver, callbackScope: this });
+
+    this.add.rectangle(0, 770, gw * 2, 3, 0xffffff);
+    textoInstrucciones = this.add.text(20, 780, 'DERRIBA LOS PRODUCTOS VERDES', { font: '20px Arial', fill: '#ffffff' });
 }
 
 function update() {
@@ -78,13 +89,11 @@ function update() {
         //infoTiempo.setText('00:' + segundosfaltan(falta0));        
     }
     infoTiempo.setText('00:' + segundosfaltan(falta));
-    infoMarcador.setText('PUNTOS \n       ' + productos);
-
-    textoTiempo = this.add.text(20, 700, 'Tap a la pantalla para \n eliminar a la competencia \n   de la góndola.', { font: '20px Intro', fill: '#ffffff' });
+    infoMarcador.setText('     ' + productos);
 }
 
 function segundosfaltan(segundos) {
-    console.log(segundos);
+    //console.log(segundos);
     //if (productos != total && Math.floor(gt - timer.getElapsed() / 1000) > 0) {
     if (segundos > 10) 
         return segundos;
@@ -97,17 +106,17 @@ function crearProducto (x, y, nombre, puntos, t){
     var prod = t.add.image(x, y, nombre);
     //console.log(prod.width + ', ' + prod.height + ' - ' + prod.x + ',' + prod.y + '+' + prod.height / 2 + '=' + prod.y + prod.height / 2);
     
-    if (nombre.includes('sobre')) {
-        //console.log('Creando sobre:' + nombre+ ', x:' + prod.x + ', y:' + prod.y);
-        prod.setScale(.05);
-        prod.y -= 150;
+     if (nombre.includes('sobre')) {
+    //     //console.log('Creando sobre:' + nombre+ ', x:' + prod.x + ', y:' + prod.y);
+         prod.setScale(.07);
+    //     prod.y -= 150;
+     }
+     else
+     {
+        //console.log('Creando sobre:' + nombre+ ', x:' + prod.x + ', y:' + prod.y);        
+        prod.setScale(.18);        
     }
-    else
-    {
-        //console.log('Creando sobre:' + nombre+ ', x:' + prod.x + ', y:' + prod.y);
-        prod.y -=  prod.height / 2;
-        prod.setScale(.15);
-    }
+    //prod.y -=  prod.height / 2;
 
     if (puntos > 0) {
         total += puntos;
@@ -145,8 +154,8 @@ function clickHandler (prod)
 
     prod.setVisible(false);
 
-    mira.x = prod.x;
-    mira.y = prod.y;
+    // mira.x = prod.x;
+    // mira.y = prod.y;
 }
 
 function gameOver ()
@@ -159,15 +168,16 @@ function gameOver ()
 }
 
 function restarx(o){
-    var restar = gaccel;
+    var restar = 0;
     var y = o.y + o.height / 2;
     //console.log('y: ' + y);
-
-    switch(y) {
+    //console.log(o.texture.key + '-' + y);
+    
+    switch(o.y) {
         case estante1: restar = gaccel; break;
         case estante2: restar = gaccel2; break;
         case estante3: restar = gaccel3; break;
-        case estante4: restar = gaccel4; break;
+        case estante4: restar = gaccel4; break;        
     }
 
     if (o.x < 0) {

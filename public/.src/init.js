@@ -33,6 +33,7 @@ var config = {
     height: gh,
     parent: "container",
     //backgroundColor: '#392542',
+    "transparent"    : true,
     type: Phaser.AUTO,
     scene: [ SceneA, SceneB, SceneC, SceneGame, SceneD ],        
     // scene: {

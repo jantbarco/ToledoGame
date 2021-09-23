@@ -7,11 +7,11 @@ const gaccel3 = 4; // Posiciones en x que se mueven en el estante3
 const gaccel4 = 2; // Posiciones en x que se mueven en el estante4
 const gw = 410; // Ancho de la pantalla 
 const gh = 820; // Alto de la pantalla
-const gt = 10; //Tiempo de juego en segundos
-const estante1 = 600; //Posición y del estante1
-const estante2 = 650; //Posición y del estante2
-const estante3 = 700; //Posición y del estante3
-const estante4 = 755; //Posición y del estante1
+const gt = 20; //Tiempo de juego en segundos
+const estante1 = 430; //Posición y del estante1
+const estante2 = 500; //Posición y del estante2
+const estante3 = 570; //Posición y del estante3
+const estante4 = 640; //Posición y del estante1
 
 var intentos = 100;
 var objetos = [];
@@ -22,9 +22,9 @@ var audio_inicio;
 var audio_fin;
 var audio_moneda;
 var audio_fondo;
-const fondopix = gw / 2; 
+const fondopix = gw / 2;
 const fondopiy = gh / 2;
-const logox= gw / 2; 
+const logox= gw / 2;
 const logoy = 75;
-const alcancillapix = gw * 0.78; 
+const alcancillapix = gw * 0.78;
 const alcancillapiy = gh * 0.8;

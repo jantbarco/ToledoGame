@@ -5,30 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>::Condimentos::Malher::</title>
-    <style> 
-      /* @font-face {
-         font-family: Intro ;
-         src: url('./assets/font/Intro-bold.otf');
-      } */
-
-      @font-face {
-        font-family: "Intro";
-        src: url("./assets/font/Intro-Black.otf") format("opentype");
-      }      
-      
-      </style>
-</head>
-<body>
+    <meta name="description" content="Juego de condimentos Malher para tigres rojos.">
+    <meta property="og:title" content="Juego de condimentos Malher para tigres rojos." />
+    <meta property="og:image" content="https://condimentosmalher.web.app/assets/img/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
+    <link rel="icon" type="image/png" href="https://condimentosmalher.web.app/assets/img/favicon.png"/> 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146420039-1"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146420039-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'UA-146420039-1');
-    </script>
+    </script> -->
     <script type="css"></script>
+    <script type="css" src=".src/popup.css"></script>
     <script src="./phaser.js"></script>
     <script src=".src/constantes.js"></script>
     <script src=".src/productos.js"></script>
@@ -38,8 +30,68 @@
     <script src=".src/SceneB.js"></script>
     <script src=".src/SceneA.js"></script>
     <script src=".src/init.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+    <script src=".src/source.js"></script> 
+    <style> 
+      /* @font-face {
+         font-family: Intro ;
+         src: url('./assets/font/Intro-bold.otf');
+      } */
+
+      @font-face {
+        font-family: "Intro";
+        src: url("./assets/font/Intro-Black.otf") format("opentype");
+      }    
+
+      body {
+        background: #aa0201;
+        background: linear-gradient(45deg, rgba(170,2,1,1) 0%, rgba(217,21,25,1) 90%, rgba(217,21,25,1) 100%);
+        width: 98%;
+        align-content: center;  
+      }
+
+      .container {
+        margin: 0 auto;
+      }
+
+      canvas {
+        display : block;   
+        margin : auto;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        text-decoration: none;
+        border: 0;
+      }
+      
+      </style>
+</head>
+<body>    
     <!-- <p style="font-family: Intro">Nestle</p> -->
-    <div id="container"></div>
-    <p style="font-family: Intro">Malher</p>
+    <div id="container" style="align-self: center;">
+      <input type="text" name="username" id="utext" style="position: absolute; top: 38%; left: 39%; height: 50px; width: 300px; font-size: 30px; text-align: center; display: none;"/>
+    </div>
+    <p style="font-family: Intro; font-size: 0px;">Malher</p>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+    
+    </div>
+    <!-- <div class="messagepop pop">
+      <form method="post" id="new_message" action="/messages">
+        <p><label for="nombre">Ingresa tu nombre</label><input type="text" size="30" name="nombre" id="nombre" /></p>        
+        <p><input type="submit" value="Enviar" name="commit" id="message_submit"/></p>
+      </form>
+    </div> -->
+    
+    <!----- HTML ----->
+    
+
 </body>
 </html>

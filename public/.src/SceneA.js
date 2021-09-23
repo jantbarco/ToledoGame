@@ -9,6 +9,7 @@ var SceneA = new Phaser.Class({
     },
     preload: preoloadA,
     create: createA,
+    update: updateA,
 });
 
 var line1;
@@ -16,34 +17,48 @@ var line1;
 function preoloadA()
 {    
     //console.log('Cargando sceneA')
-    this.load.image('sky', './assets/img/Fondo.jpg');
+    this.load.image('sky', './assets/img/Fondo.png');
     this.load.image('tigres', './assets/img/logo-02.png');
+    this.load.image('productos', './assets/img/bodegon.png');
     this.load.image('logo', './assets/img/Logo_Malher.png');
     this.load.image('fullscreen', './assets/fullscreen.png');
 
     this.load.audio("audio_intro", "./assets/sound/intro.mp3");
 }
 
+function updateA(){
+    this.game.scale.pageAlignHorizontally = true;
+    this.game.scale.pageAlignVertically = true;
+    this.game.scale.refresh();
+}
+
 function createA()
 {
+    this.game.scale.pageAlignHorizontally = true;
+    this.game.scale.pageAlignVertically = true;
+    this.game.scale.refresh();
+
     this.buttonInicio = this.add.image(fondopix, fondopiy, 'sky').setInteractive();
     this.buttonFs = this.add.image(gw - 40, 50, 'fullscreen').setInteractive();
-    this.tigres = this.add.image(fondopix, 150, 'tigres');
-    this.tigres.setScale(.25);
-
     //line1 = new Phaser.Line(0, 140, gw, 140);
-    this.add.line(0, 120, 0, 120, gw * 2, 120, 0xffffff);
+    //this.add.line(0, 120, 0, 120, gw * 2, 120, 0xffffff);
+    this.add.rectangle(0, 200, gw * 2, 5, 0xffffff);
 
-    this.add.text(100, 270, 'Bienvenido', { font: '40px Intro', fill: '#ffffff' });
-    this.add.text(150, 320, 'al juego de ', { font: '30px Intro', fill: '#ffffff' });
-    this.add.text(35, gh - 200, 'Toca la pantalla para iniciar', { font: '25px Intro', fill: '#ffffff' });
-    
-    var logo = this.add.image(fondopix, 470, 'logo');
+    this.add.text(100, 220, 'Bienvenido', { font: 'bold 40px Arial', fill: '#ffffff' });
+    //this.add.text(100, 270, 'Ingresa tu nombre', { font: 'bold 25px Arial', fill: '#ffffff' });
+    //this.add.text(150, 320, 'al juego de ', { font: '30px Intro', fill: '#ffffff' });
+    var toca = this.add.text(35, 750, 'Toca la pantalla para iniciar', { font: 'bold 25px Arial', fill: '#ffffff' });
+    toca.setDepth(2);
+
+    var logo = this.add.image(fondopix, 120, 'logo');
     logo.setScale(.35);
     
+    this.productos = this.add.image(fondopix, 500, 'productos');
+    this.productos.setScale(.9);
+
     //if (intentos == 0) {
     this.buttonInicio.on('pointerdown', function(event){
-        console.log('iniciAR presionado... ---');
+        //console.log('iniciAR presionado... ---');
         audio_intro.stop();
         //game = new Phaser.Game(config);            
         this.scene.start('sceneC');
