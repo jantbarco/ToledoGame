@@ -1,14 +1,17 @@
+import { callfn } from "./source.js";
+
 /***************** ESCENE D */
-var SceneD = new Phaser.Class({
+export var SceneD = new Phaser.Class({
     Extends: Phaser.Scene,
     initialize: function ()
     {
         Phaser.Scene.call(this, { key: 'sceneD' });
-    },   
+    },
     preload: preloadD,
     create: createD,
     update: updateD
 });
+
 
 function preloadD()
 {
@@ -26,15 +29,18 @@ function preloadD()
 
 function createD()
 {
+    //console.log(username + ' hizo ' + productos + ' pts');
+    callfn(username, productos);
+    //callfn(username, productos);
     this.add.image(fondopix, fondopiy, 'sky');
     //picapica = this.add.image(fondopix, 0, 'picapica');
     this.logo = this.add.image(fondopix, 80, 'logo');
     this.logo.setScale(.25);
     //this.add.image(fondopix, fondopiy + 400, 'boton');
 
-    audio_fin = this.sound.add("audio_fin");
+    var audio_fin = this.sound.add("audio_fin");
     //audio_fin1 = this.sound.add("audio_fin1");
-    gameover = this.sound.add("audio_gameover");
+    var gameover = this.sound.add("audio_gameover");
 
     this.add.line(0, 0, 0, 150, gw * 2, 150, 0xffffff);
     this.add.line(0, 0, 0, 260, gw * 2, 260, 0xffffff);
@@ -98,4 +104,8 @@ function updateD (){
     if ((countercarreta % 50) == 0) {        
         flagcarreta = flagcarreta * -1;
     }
+}
+
+function RegistrarResultado() {
+    callfn();
 }

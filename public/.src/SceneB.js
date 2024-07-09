@@ -1,16 +1,22 @@
 /***************** ESCENE B */
 
-var SceneB = new Phaser.Class({
+export var SceneB = new Phaser.Class({
     Extends: Phaser.Scene,
     initialize: function ()
     {
         Phaser.Scene.call(this, { key: 'sceneB' });
-    },   
+    },
+    init: init,
     preload: preloadB,
     create: createB
 });
 
-var username = '';
+var user;
+
+function init(data) {
+    user = data.user;
+}
+
 
 function preloadB()
 {
@@ -31,7 +37,7 @@ function createB()
     
     this.logo = this.add.image(200, 140, 'logo');
     this.logo.setScale(.5);
-    this.add.text(100, 270, 'Ingresa tu nombre', { font: 'bold 25px Arial', fill: '#ffffff' });
+    //this.add.text(100, 270, 'Ingresa tu nombre', { font: 'bold 25px Arial', fill: '#ffffff' });
     this.button =this.add.image(fondopix, fondopiy + 270, 'boton').setInteractive();
     this.button.setScale(1);
     this.button.on('pointerdown', function(event){

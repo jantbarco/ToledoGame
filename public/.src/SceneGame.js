@@ -1,14 +1,20 @@
+import { Listado } from "./productos.js"
+
 /***************** ESCENE GAME */
-var SceneGame = new Phaser.Class({
+export var SceneGame = new Phaser.Class({
     Extends: Phaser.Scene,
     initialize: function ()
     {
         Phaser.Scene.call(this, { key: 'sceneGame' });
-    }, 
+    },
     preload: preload,
     create: create,
     update: update
 });
+
+var infoTiempo;
+var infoMarcador;
+var timer;
 
 function preload(){
     this.load.image("fondo", "./assets/img/Fondo.jpg");
@@ -24,6 +30,7 @@ function preload(){
 }
 
 function create(){
+    console.log(username);
     this.input.setDefaultCursor('url(./assets/img/mira.png), pointer');
     //console.log("Creando esceneGame...")    
     //escena juego    
@@ -66,27 +73,25 @@ function create(){
     this.marcador.setScale(.9);
     this.marcador.setDepth(-1);
 
-    textoTiempo = this.add.text(80, 140, 'TIEMPO RESTANTE', { font: '25px Arial', fill: '#ffffff' });
+    var textoTiempo = this.add.text(80, 140, 'TIEMPO RESTANTE', { font: '25px Arial', fill: '#ffffff' });
     infoTiempo = this.add.text(160, 170, '', { font: 'bold 30px Arial', fill: '#ffffff' });
-    //textoTiempo = this.add.text(80, 180, '', { font: '25px Intro', fill: '#ffffff' });
-    infoMarcador2 = this.add.text(gw * .74, 690, 'PUNTOS', { font: 'bold 25px Arial', fill: '#aa0201' });
+    var infoMarcador2 = this.add.text(gw * .74, 690, 'PUNTOS', { font: 'bold 25px Arial', fill: '#aa0201' });
     infoMarcador = this.add.text(gw * .74, 720, '', { font: 'bold 30px Arial', fill: '#aa0201' });
     timer = this.time.addEvent({ delay: gt * 1000, callback: gameOver, callbackScope: this });
 
     this.add.rectangle(0, 770, gw * 2, 3, 0xffffff);
-    textoInstrucciones = this.add.text(20, 780, 'DERRIBA LOS PRODUCTOS VERDES', { font: '20px Arial', fill: '#ffffff' });
+    var textoInstrucciones = this.add.text(20, 780, 'DERRIBA LOS PRODUCTOS VERDES', { font: '20px Arial', fill: '#ffffff' });
 }
 
 function update() {
     //if (productos != total && Math.floor(gt - timer.getElapsed() / 1000) > 0) {
-    falta = Math.floor(gt - timer.getElapsed() / 1000);
+    var falta = Math.floor(gt - timer.getElapsed() / 1000);
     //console.log(falta);
     if (falta > 0) {
+        var i;
         for (i in objetos){
             restarx(objetos[i]);
         }
-
-        //infoTiempo.setText('00:' + segundosfaltan(falta0));        
     }
     infoTiempo.setText('00:' + segundosfaltan(falta));
     infoMarcador.setText('     ' + productos);
@@ -95,7 +100,7 @@ function update() {
 function segundosfaltan(segundos) {
     //console.log(segundos);
     //if (productos != total && Math.floor(gt - timer.getElapsed() / 1000) > 0) {
-    if (segundos > 10) 
+    if (segundos > 9) 
         return segundos;
     else
         return '0' + segundos;
@@ -132,12 +137,14 @@ function crearProducto (x, y, nombre, puntos, t){
 function CrearProductos(g){
     productos = 0;
     total = 0;
+    var i;
     for (i in Listado){        
         objetos.push(crearProducto(Listado[i].x, Listado[i].y, Listado[i].nombre, Listado[i].puntos, g));
     }
 }
 
 function CargarImagenes(g){
+    var i;
     for (i in Listado){
         //console.log('Cargando producto:|' + Listado[i].nombre + '|-|' + Listado[i].img + '|');
         g.load.image(Listado[i].nombre, Listado[i].img);

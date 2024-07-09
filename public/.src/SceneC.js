@@ -1,14 +1,16 @@
 /***************** ESCENE B */
-var SceneC = new Phaser.Class({
+export var SceneC = new Phaser.Class({
     Extends: Phaser.Scene,
-    initialize: function ()
-    {
+    initialize: function initialize() {
         Phaser.Scene.call(this, { key: 'sceneC' });
-    },   
+    },
     preload: preloadC,
     create: createC,
     update: updateC
 });
+
+var infoTiempoC;
+var timerC;
 
 function preloadC()
 {
@@ -17,12 +19,12 @@ function preloadC()
     // this.load.image('texto', './assets/instrucciones/texto.png');
     this.load.image('productob', './assets/img/bodegon.png');
     
-    this.load.audio("audio_cs", "./assets/sound/countdown1.mp3");
+    this.load.audio("audio_cs", "./assets/sound/countdown.wav");
 }
 
 function createC()
 {
-    
+    console.log(username);
     //console.log('Creando sceneC');
     this.add.image(fondopix, fondopiy, 'sky');
     //this.add.text(100, 70, '¿Estás listo para \n      vencer a la \n  competencia?', { font: '25px Intro', fill: '#ffffff' });
@@ -49,7 +51,7 @@ function createC()
     infoTiempoC = this.add.text(fondopix - 90, fondopiy - 180, '', { font: 'bold 300px Arial', fill: '#ffffff' });    
     timerC = this.time.addEvent({ delay: 3 * 1000, callback: loadingfinish, callbackScope: this });
 
-    audio_cs = this.sound.add("audio_cs");
+    var audio_cs = this.sound.add("audio_cs");
     audio_cs.play({
         loop: false
     });

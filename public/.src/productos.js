@@ -1,4 +1,4 @@
-var Listado = [
+export var Listado = [
     //Estanteria Nivel 1
     { "id": 14, "nombre": "sobre_1", "img": "./assets/img/sobre_1.png", "x": 25, "y":estante1, puntos:0 },
     { "id": 30, "nombre": "bote_6", "img": "./assets/img/bote_6.png", "x": 90, "y":estante1, puntos:1 },
