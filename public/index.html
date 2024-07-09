@@ -8,12 +8,31 @@
     <meta name="description" content="Juego de Toledo.">
     <meta property="og:title" content="Juego de Toledo." />
     <!--<meta property="og:image" content="https://condimentosmalher.web.app/assets/img/favicon.png" 
+    <script type="css"></script>
+    <script type="css" src=".src/popup.css"></script>
+    <script src="/public/phaser.js"></script>
+    <script src="/public/.src/constantes.js"></script>
+    <script type="module" src="/public/.src/productos.js"></script>
+    <script type="module" src="/public/.src/SceneD.js"></script>
+    <script type="module" src="/public/.src/SceneGame.js"></script>
+    <script type="module" src="public/.src/SceneC.js"></script>
+    <script type="module" src="public/.src/SceneB.js"></script>
+    <script type="module" src="public/.src/SceneA.js"></script>
+    <script type="module" src="public/.src/init.js"></script>
+    <script type="module" src="public/.src/source.js"></script> 
+    <!-- <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script> -->
+    <script type="module" id="RegistroFS">
+      
+      // Initialize Firebase
+      //firebase.initializeApp(firebaseConfig);
+    </script>
     <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
     <link rel="icon" type="image/png" href="https://condimentosmalher.web.app/assets/img/favicon.png"/>-->
     <style>
       @font-face {
         font-family: "Fontfabric";
-        src: url('./assets/font/Fontfabric.otf');
+        src: url('public/assets/font/Fontfabric.otf');
       }
 
       @font-face {
@@ -47,26 +66,7 @@
       </style>
 </head>
 <body>    
-    <script type="css"></script>
-    <script type="css" src=".src/popup.css"></script>
-    <script src="./phaser.js"></script>
-    <script src="./.src/constantes.js"></script>
-    <script type="module" src="/public/.src/productos.js"></script>
-    <script type="module" src="./public/.src/SceneD.js"></script>
-    <script type="module" src="./.src/SceneGame.js"></script>
-    <script type="module" src="/.src/SceneC.js"></script>
-    <script type="module" src="./.src/SceneB.js"></script>
-    <script type="module" src="./.src/SceneA.js"></script>
-    <script type="module" src="./.src/init.js"></script>
-    <script type="module" src="./.src/source.js"></script> 
-    <!-- <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script> -->
-    <script type="module" id="RegistroFS">
-      
-      // Initialize Firebase
-      //firebase.initializeApp(firebaseConfig);
-    </script>
-    <!-- <p style="font-family: Intro">Nestle</p> -->
+    <!-- <p style="font-family: Intro">Toledo</p> -->
     <div id="container" style="align-self: center;">
       <input type="text" name="username" id="utext" style="position: absolute; top: 38%; left: 39%; height: 50px; width: 300px; font-size: 30px; text-align: center; display: none;"/>
     </div>
