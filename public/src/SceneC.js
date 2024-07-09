@@ -31,7 +31,7 @@ function createC()
     this.logo.setScale(.15);
 
     
-    infoTiempoC = this.add.text(fondopix - 90, fondopiy - 80, '', { font: 'bold 300px Arial', fill: '#ffffff' });    
+    infoTiempoC = this.add.text(fondopix - 90, fondopiy - 80, '', { font: 'bold 300px FontFabric', fill: '#ffffff' });    
     timerC = this.time.addEvent({ delay: 3 * 1000, callback: loadingfinish, callbackScope: this });
 
     var audio_cs = this.sound.add("audio_cs");

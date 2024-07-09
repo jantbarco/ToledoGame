@@ -20,7 +20,7 @@ function preload(){
     this.load.image("fondo", "./assets/img/fondo_fabrica.png");
     //this.load.image("fondo_gondola", "./assets/img/Fondo_obstaculos.png");
     this.load.image("mira", "./assets/img/mira.png");
-    this.load.image("marcador", "./assets/img/marcador.png");
+    this.load.image("marcador", "./assets/img/boton.png");
     this.load.image("logom", "./assets/img/Logo_Malher.png");
     
     CargarImagenes(this);
@@ -69,18 +69,16 @@ function create(){
     //     this.scene.start('sceneA');
     //   }, this);
 
-    this.marcador = this.add.image(fondopix  * 2 -60, 720, "marcador");
-    this.marcador.setScale(.9);
-    this.marcador.setDepth(-1);
-
-    var textoTiempo = this.add.text(80, 140, 'TIEMPO RESTANTE', { font: '25px Arial', fill: '#ffffff' });
-    infoTiempo = this.add.text(160, 170, '', { font: 'bold 30px Arial', fill: '#ffffff' });
-    var infoMarcador2 = this.add.text(gw * .74, 690, 'PUNTOS', { font: 'bold 25px Arial', fill: '#aa0201' });
-    infoMarcador = this.add.text(gw * .74, 720, '', { font: 'bold 30px Arial', fill: '#aa0201' });
+    this.marcador = this.add.image(150, 140, "marcador");
+    this.marcador.setScale(.3);
+    var textoTiempo = this.add.text(80, 1050, 'TIEMPO RESTANTE', { font: '25px FontFabric', fill: '#ffffff' });
+    infoTiempo = this.add.text(160, 1080, '', { font: 'bold 30px FontFabric', fill: '#ffffff' });
+    var infoMarcador2 = this.add.text(90, 100, 'PUNTOS', { font: 'bold 25px FontFabric', fill: '#ffffff' });
+    infoMarcador = this.add.text(80, 130, '', { font: 'bold 30px FontFabric', fill: '#ffffff' });
     timer = this.time.addEvent({ delay: gt * 1000, callback: gameOver, callbackScope: this });
 
-    this.add.rectangle(0, 770, gw * 2, 3, 0xffffff);
-    var textoInstrucciones = this.add.text(20, 780, 'DERRIBA LOS PRODUCTOS VERDES', { font: '20px Arial', fill: '#ffffff' });
+    // this.add.rectangle(0, 770, gw * 2, 3, 0xffffff);
+    // var textoInstrucciones = this.add.text(20, 780, 'DERRIBA LOS PRODUCTOS VERDES', { font: '20px FontFabric', fill: '#ffffff' });
 }
 
 function update() {

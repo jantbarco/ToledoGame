@@ -45,8 +45,8 @@ function createD()
     // this.add.line(0, 0, 0, 150, gw * 2, 150, 0xffffff);
     // this.add.line(0, 0, 0, 260, gw * 2, 260, 0xffffff);
 
-    this.add.text(gw * .44, 350, 'Lograste', { font: 'bold 40px Arial', fill: '#ffffff' });
-    this.add.text(gw * .46, 500, productos + ' pts', { font: 'bold 40px Arial', fill: '#ffffff' });
+    this.add.text(gw * .44, 350, 'Lograste', { font: 'bold 40px FontFabric', fill: '#ffffff' });
+    this.add.text(gw * .46, 500, productos + ' pts', { font: 'bold 40px FontFabric', fill: '#ffffff' });
     //this.add.text(gw / 2 - 200, 250, 'productos de la competencia', { font: '20px Intro', fill: '#ffffff' });
 
     this.fondop = this.add.image(fondopix, 500, 'fondopuntaje');
