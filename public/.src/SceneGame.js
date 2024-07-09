@@ -17,8 +17,8 @@ var infoMarcador;
 var timer;
 
 function preload(){
-    this.load.image("fondo", "./assets/img/Fondo.jpg");
-    this.load.image("fondo_gondola", "./assets/img/Fondo_obstaculos.png");
+    this.load.image("fondo", "./assets/img/fondo_fabrica.png");
+    //this.load.image("fondo_gondola", "./assets/img/Fondo_obstaculos.png");
     this.load.image("mira", "./assets/img/mira.png");
     this.load.image("marcador", "./assets/img/marcador.png");
     this.load.image("logom", "./assets/img/Logo_Malher.png");
@@ -30,17 +30,17 @@ function preload(){
 }
 
 function create(){
-    console.log(username);
-    this.input.setDefaultCursor('url(./assets/img/mira.png), pointer');
+    //console.log(username);
+    //this.input.setDefaultCursor('url(./assets/img/mira.png), pointer');
     //console.log("Creando esceneGame...")    
     //escena juego    
-    //this.fondo = this.add.image(fondopix, fondopiy, "fondo");
-    this.add.rectangle(0, 135, gw * 2, 3, 0xdb766c);
+    this.fondo = this.add.image(fondopix, fondopiy, "fondo");
+    //this.add.rectangle(0, 135, gw * 2, 3, 0xdb766c);
 
-    this.fondo_gondola = this.add.image(fondopix, fondopiy + 50, "fondo_gondola");    
-    this.fondo_gondola.setScale(.55);
-    this.logo = this.add.image(logox, logoy, "logom");
-    this.logo.setScale(.25);
+    //this.fondo_gondola = this.add.image(fondopix, fondopiy + 50, "fondo_gondola");    
+    //this.fondo_gondola.setScale(.55);
+    //this.logo = this.add.image(logox, logoy, "logom");
+    //this.logo.setScale(.25);
     // mira = this.add.image(fondopix, fondopiy, "mira");
     // mira.setScale(.25);
     // mira.setDepth(2);
@@ -119,7 +119,7 @@ function crearProducto (x, y, nombre, puntos, t){
      else
      {
         //console.log('Creando sobre:' + nombre+ ', x:' + prod.x + ', y:' + prod.y);        
-        prod.setScale(.18);        
+        prod.setScale(.3);        
     }
     //prod.y -=  prod.height / 2;
 
