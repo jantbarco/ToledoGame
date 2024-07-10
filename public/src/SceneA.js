@@ -60,8 +60,7 @@ export function createA()
         else {
             this.scale.startFullscreen();
         }
-        //window['game']['canvas'][game.device.fullscreen.request]();
-              
+        //window['game']['canvas'][game.device.fullscreen.request]();              
     }, this);
 
     /* ---------- AUDIO ------------*/

@@ -21,7 +21,6 @@ function preload(){
     //this.load.image("fondo_gondola", "./assets/img/Fondo_obstaculos.png");
     this.load.image("mira", "./assets/img/mira.png");
     this.load.image("marcador", "./assets/img/boton.png");
-    this.load.image("logom", "./assets/img/Logo_Malher.png");
     
     CargarImagenes(this);
     

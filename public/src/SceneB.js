@@ -40,7 +40,7 @@ function createB()
     this.fondo.on('pointerdown', function(event){
         audio_intro.stop();
         //console.log('Boton iniciar presionado...');
-        this.scene.start('sceneC');
+        this.scene.start('sceneGame');
       }, this);    
     this.fondo.setInteractive();
 }
