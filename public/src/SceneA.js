@@ -17,7 +17,7 @@ var line1;
 export function preoloadA()
 {    
     //console.log('Cargando sceneA')
-    this.load.image('sky', './assets/img/Fondo.png');
+    this.load.image('sky', './assets/img/Fondo.jpg');
     this.load.image('comenzar', './assets/img/comenzar.png');
     this.load.image('logo', './assets/img/Logo_Toledo.png');
     this.load.image('fullscreen', './assets/fullscreen.png');

@@ -2,6 +2,7 @@ import { SceneA } from "./SceneA.js"
 import { SceneB } from "./SceneB.js"
 import { SceneC } from "./SceneC.js"
 import { SceneD } from "./SceneD.js"
+import { SceneLoading } from "./SceneLoading.js"
 import { SceneGame } from "./SceneGame.js"
 
 /************CONFIG GAME */
@@ -9,9 +10,9 @@ var config2 = {
     width: gw,
     height: gh,
     parent: "container",
-    //backgroundColor: '#392542',
+    backgroundColor: '#1f346b',
     type: Phaser.AUTO,
-    scene: [ SceneA, SceneB, SceneC, SceneGame, SceneD ],        
+    scene: [ SceneLoading, SceneA, SceneB, SceneC, SceneGame, SceneD ],        
     // scene: {
     //     preload: preload,
     //     create: create,
@@ -38,10 +39,10 @@ var config = {
     width: gw,
     height: gh,
     parent: "container",
-    //backgroundColor: '#392542',
+    backgroundColor: '#1f346b',
     "transparent"    : true,
     type: Phaser.AUTO,
-    scene: [ SceneA, SceneB, SceneC, SceneGame, SceneD ],        
+    scene: [ SceneLoading, SceneA, SceneB, SceneC, SceneGame, SceneD ],        
     // scene: {
     //     preload: preload,
     //     create: create,
