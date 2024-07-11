@@ -38,7 +38,7 @@ export function createA()
     this.game.scale.pageAlignVertically = true;
     this.game.scale.refresh();
     
-    this.fondo = this.add.image(fondopix, fondopiy, 'sky').setInteractive();
+    this.fondo = this.add.image(fondopix, fondopiy, 'sky');
     //this.fondo.setScale(.5);
     
     this.buttonFs = this.add.image(gw - 40, 20, 'fullscreen').setInteractive();

@@ -18,6 +18,7 @@ function preloadC()
 
 function createC()
 {
+    this.add.image(fondopix, fondopiy, 'sky');
     this.logo = this.add.image(fondopix, 300, 'logo');
     this.logo.setScale(.15);
 
