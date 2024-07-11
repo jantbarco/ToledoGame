@@ -12,16 +12,15 @@ var timerC;
 
 function preloadC()
 {
-    this.load.image('logo', './assets/img/Logo_Toledo2.png');
-    this.load.image('sky', './assets/img/Fondo2.jpg');
+    this.load.image('logo', 'public/assets/img/Logo_Toledo2.png');
+    this.load.image('sky', 'public/assets/img/Fondo2.jpg');
 }
 
 function createC()
 {
     this.add.image(fondopix, fondopiy, 'sky');
     this.logo = this.add.image(fondopix, 300, 'logo');
-    this.logo.setScale(.15);
-
+    
     timerC = this.time.addEvent({ delay: 3 * 1000, callback: loadingfinish, callbackScope: this })
 }
 
