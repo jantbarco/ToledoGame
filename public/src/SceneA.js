@@ -17,9 +17,9 @@ var line1;
 export function preoloadA()
 {    
     //console.log('Cargando sceneA')
-    this.load.image('sky', './assets/img/Fondo.jpg');
+    this.load.image('sky', './assets/img/Fondo2.jpg');
     this.load.image('comenzar', './assets/img/comenzar.png');
-    this.load.image('logo', './assets/img/Logo_Toledo.png');
+    this.load.image('logo', './assets/img/Logo_Toledo2.png');
     this.load.image('fullscreen', './assets/fullscreen.png');
 
     this.load.audio("audio_intro", "./assets/sound/intro.mp3");
@@ -48,9 +48,8 @@ export function createA()
     this.add.text(520, 190, 'planta CIA', { font: 'bold 110px FontFabric', fill: '#ffffff' });
     
     /* ----------------- LOGO -----------------*/
-    var logo = this.add.image(fondopix, 550, 'logo');
-    logo.setScale(.15);
-    
+    //this.add.image(fondopix, 550, 'logo');
+        
     /* --------------- BOTON FULL SCREEN -----------------*/
     this.buttonFs.on('pointerdown', function(event){
         //console.log('Boton fs presionado...');
