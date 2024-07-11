@@ -39,7 +39,7 @@ export function createA()
     this.game.scale.refresh();
     
     this.fondo = this.add.image(fondopix, fondopiy, 'sky').setInteractive();
-    this.fondo.setScale(.5);
+    //this.fondo.setScale(.5);
     
     this.buttonFs = this.add.image(gw - 40, 20, 'fullscreen').setInteractive();
     //this.add.rectangle(0, 180, gw * 2, 5, 0xffffff);
