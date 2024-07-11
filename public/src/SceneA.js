@@ -44,7 +44,7 @@ export function createA()
     this.buttonFs = this.add.image(gw - 40, 20, 'fullscreen').setInteractive();
     //this.add.rectangle(0, 180, gw * 2, 5, 0xffffff);
 
-    this.add.text(350, 60, 'Bienvenido a la', { font: 'bold 110px FontFabric', fill: '#ffffff' });
+    this.add.text(350, 60, 'Bienvenidos a la', { font: 'bold 110px FontFabric', fill: '#ffffff' });
     this.add.text(520, 190, 'planta CIA', { font: 'bold 110px FontFabric', fill: '#ffffff' });
     
     /* ----------------- LOGO -----------------*/
