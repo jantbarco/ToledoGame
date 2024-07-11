@@ -185,7 +185,7 @@ function restarx(o){
     }
 
     if (o.x < 0) {
-        o.x = gw;
+        o.x = gw - 230;
         //o.input.enabled = true;
         o.setVisible(true);
     }
