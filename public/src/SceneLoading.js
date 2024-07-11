@@ -13,6 +13,7 @@ var timerC;
 function preloadC()
 {
     this.load.image('logo', './assets/img/Logo_Toledo.png');
+    this.load.image('sky', './assets/img/Fondo.jpg');
 }
 
 function createC()
