@@ -14,12 +14,12 @@ var timerC;
 
 function preloadC()
 {
-    this.load.image('sky', './assets/img/Fondo.jpg');
-    this.load.image('logo', './assets/instrucciones/logo.png');
-    // this.load.image('texto', './assets/instrucciones/texto.png');
-    //this.load.image('productob', './assets/img/bodegon.png');
+    this.load.image('sky', 'public/assets/img/Fondo.jpg');
+    this.load.image('logo', 'public/assets/instrucciones/logo.png');
+    // this.load.image('texto', 'public/assets/instrucciones/texto.png');
+    //this.load.image('productob', 'public/assets/img/bodegon.png');
     
-    this.load.audio("audio_cs", "./assets/sound/countdown.wav");
+    this.load.audio("audio_cs", "public/assets/sound/countdown.wav");
 }
 
 function createC()

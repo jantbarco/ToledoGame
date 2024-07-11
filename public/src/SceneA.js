@@ -18,11 +18,11 @@ export function preoloadA()
 {    
     //console.log('Cargando sceneA')
     this.load.image('sky', 'public/assets/img/Fondo2.jpg');
-    this.load.image('comenzar', './assets/img/comenzar.png');
+    this.load.image('comenzar', 'public/assets/img/comenzar.png');
     this.load.image('logo', 'public/assets/img/Logo_Toledo2.png');
-    this.load.image('fullscreen', './assets/fullscreen.png');
+    this.load.image('fullscreen', 'public/assets/fullscreen.png');
 
-    this.load.audio("audio_intro", "./assets/sound/intro.mp3");
+    this.load.audio("audio_intro", "public/assets/sound/intro.mp3");
 }
 
 

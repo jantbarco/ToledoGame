@@ -1,4 +1,4 @@
-var path = "./assets/img/productos/";
+var path = "public/assets/img/productos/";
 export var Listado = [
     //Estanteria Nivel 1
     { "id": 14, "nombre": "P1", "img": path + "P1.png", "x": 25, "y":estante1, puntos:1 },

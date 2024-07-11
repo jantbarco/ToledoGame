@@ -17,20 +17,20 @@ var infoMarcador;
 var timer;
 
 function preload(){
-    this.load.image("fondo", "./assets/img/fondo_fabrica.png");
-    //this.load.image("fondo_gondola", "./assets/img/Fondo_obstaculos.png");
-    this.load.image("mira", "./assets/img/mira.png");
-    this.load.image("marcador", "./assets/img/boton.png");
+    this.load.image("fondo", "public/assets/img/fondo_fabrica.png");
+    //this.load.image("fondo_gondola", "public/assets/img/Fondo_obstaculos.png");
+    this.load.image("mira", "public/assets/img/mira.png");
+    this.load.image("marcador", "public/assets/img/boton.png");
     
     CargarImagenes(this);
     
-    this.load.audio("audio_fondo", "./assets/sound/game.mp3");
-    this.load.audio("audio_moneda", "./assets/coin.wav");
+    this.load.audio("audio_fondo", "public/assets/sound/game.mp3");
+    this.load.audio("audio_moneda", "public/assets/coin.wav");
 }
 
 function create(){
     //console.log(username);
-    //this.input.setDefaultCursor('url(./assets/img/mira.png), pointer');
+    //this.input.setDefaultCursor('url(public/assets/img/mira.png), pointer');
     //console.log("Creando esceneGame...")    
     //escena juego    
     this.fondo = this.add.image(fondopix, fondopiy, "fondo");

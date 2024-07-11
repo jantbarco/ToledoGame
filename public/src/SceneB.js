@@ -19,8 +19,8 @@ function init(data) {
 
 function preloadB()
 {
-    this.load.image('instrucciones', './assets/img/instrucciones.png');
-    this.load.image('boton', './assets/img/comenzar.png');
+    this.load.image('instrucciones', 'public/assets/img/instrucciones.png');
+    this.load.image('boton', 'public/assets/img/comenzar.png');
 }
 
 function createB()

@@ -16,15 +16,15 @@ export var SceneD = new Phaser.Class({
 function preloadD()
 {
     this.load.image('res', 'public/assets/img/fondo_resultado.png');
-    this.load.image('botonFin', './assets/img/restart.png');
-    //this.load.image('picapica', './assets/fin/picapica.png');
+    this.load.image('botonFin', 'public/assets/img/restart.png');
+    //this.load.image('picapica', 'public/assets/fin/picapica.png');
 
-    // this.load.image('fondopuntaje', './assets/img/boton.png');
-    //this.load.image('tigre', './assets/img/logo-02.png');
-    //this.load.image('siguejugando', './assets/img/sigue_jugando.png');
+    // this.load.image('fondopuntaje', 'public/assets/img/boton.png');
+    //this.load.image('tigre', 'public/assets/img/logo-02.png');
+    //this.load.image('siguejugando', 'public/assets/img/sigue_jugando.png');
 
-    this.load.audio("audio_fin", "./assets/sound/winner.mp3");
-    this.load.audio("audio_gameover", "./assets/sound/lose.mp3");
+    this.load.audio("audio_fin", "public/assets/sound/winner.mp3");
+    this.load.audio("audio_gameover", "public/assets/sound/lose.mp3");
 }
 
 function createD()
