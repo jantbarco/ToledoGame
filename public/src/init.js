@@ -12,7 +12,7 @@ var config2 = {
     parent: "container",
     backgroundColor: '#1f346b',
     type: Phaser.AUTO,
-    scene: [ SceneLoading, SceneA, SceneB, SceneC, SceneGame, SceneD ],        
+    scene: [ SceneA, SceneB, SceneC, SceneGame, SceneD ],        
     // scene: {
     //     preload: preload,
     //     create: create,
@@ -42,7 +42,7 @@ var config = {
     backgroundColor: '#1f346b',
     "transparent"    : true,
     type: Phaser.AUTO,
-    scene: [ SceneLoading, SceneA, SceneB, SceneC, SceneGame, SceneD ],        
+    scene: [ SceneA, SceneB, SceneC, SceneGame, SceneD ],        
     // scene: {
     //     preload: preload,
     //     create: create,
